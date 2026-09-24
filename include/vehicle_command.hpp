@@ -1,5 +1,6 @@
 #ifndef VEHICLE_COMMAND_HPP
 #define VEHICLE_COMMAND_HPP
+#include <string>
 
 struct VehicleCommand 
 {
@@ -8,5 +9,6 @@ struct VehicleCommand
 };
 
 VehicleCommand validateCommand(const VehicleCommand& command);
+std::string serializeCommand(const VehicleCommand& command);
 
 #endif

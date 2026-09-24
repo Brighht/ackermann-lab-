@@ -1,5 +1,6 @@
 #include "vehicle_command.hpp"
 #include <algorithm>
+#include <sstream>
 
 
 VehicleCommand validateCommand(const VehicleCommand& command){
@@ -9,6 +10,20 @@ VehicleCommand validateCommand(const VehicleCommand& command){
 
     validatedCommand.steeringAngle = std::clamp(command.steeringAngle, -25.0, 25.0);
 
-    return validatedCommand;
+    return validatedCommand; 
+}
+
+// this is going to take the safe command then serialize it
+std::string serializeCommand(const VehicleCommand& command){
+    std::stringstream serializedCommandStream;
+    std::string serializedCommand;
+
+    serializedCommandStream << "CMD,"
+                     << command.speed << ","
+                     << command.steeringAngle;
+
+    serializedCommand = serializedCommandStream.str();
+    
+    return serializedCommand;
 }
 
