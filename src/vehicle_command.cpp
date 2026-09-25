@@ -20,7 +20,7 @@ std::string serializeCommand(const VehicleCommand& command){
 
     serializedCommandStream << "CMD,"
                      << command.speed << ","
-                     << command.steeringAngle;
+                     << command.steeringAngle << "\n";
 
     serializedCommand = serializedCommandStream.str();
     
